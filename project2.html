@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Survey Form Proj</title>
+   <style>
+      /* Page Background */
+      body {
+         top: 0;
+         left: 0;
+         width: 100vw;
+         height: auto;
+         margin: 0;
+         padding:0;
+      }
+      #container{
+         background-color:#7676BD;  
+         font-family: Arial, Helvetica, sans-serif;
+         font-size: 14px;
+      }
+      /* Page heading and description */
+      #title{
+         padding: 20px 0 0px 0;
+         text-align: center;
+         font-size:24px;
+         color:white;
+      }
+      #description{
+         text-align: center;
+         font-size:12px;
+         font-style: italic;
+         color:white;
+      }
+      /* form body */
+      #survey-form{
+         background-color:#2A2A49;
+         /* width: 40vw;  */
+         max-width: 35vw;
+         min-width: 350px;
+         margin:auto;
+         margin-top: 20px;
+         border-radius: 5px;
+      }
+      /* name, email and age text fields */
+      #name-label, #email-label, #number-label{
+         display: block;
+         margin: 20px 0 0 5%;
+         color:white;
+         padding:.3em;
+      }
+      #name, #email, #number{
+         margin: 0 0 0 5%;
+         width: 90%;
+         height: 1.5em;
+         border-radius: 3px;
+      }
+      /* role dropdown field */
+      #dropdown-label{
+         display: block;
+         margin: 20px 0 0 5%;
+         color:white;
+         padding:.3em;
+      }
+      #dropdown{
+         margin: 0 0 20px 5%;
+         width: 90%;
+         height: 1.7em;
+         /* border-radius: 3px;  */
+         border:none;
+      }
+      /* recommend radio buttons and label */
+      #recommend-label{
+         margin: 20px 0 20px 5%;
+         line-height: 2em;
+         color:white;
+         padding:.3em;
+      }
+      [type='radio'] {
+         height: 1em;
+      }
+      label{
+         margin: 20px 0 0 5%;
+         color:white;
+      }
+      /* favorite feature dropdown and label */
+      #dropdown-label2{
+         display: block;
+         margin: 20px 0 0 5%;
+         /* line-height: 2em; */
+         color:white;
+         padding:.3em;  
+      }
+      #dropdown2{
+         margin: 0 0 20px 5%;
+         width: 90%;
+         height: 1.7em;
+         /* border-radius: 3px;  */
+         border:none;
+      }
+      /* improvement checkboxes and labels*/
+      #checkboxes-label{
+         display: block;
+         margin: 0 0 0 5%;
+         /* padding: 20px 0 0 0; */
+         /* line-height: 2em; */
+         color:white;
+         /* padding:.3em; */
+      }
+      #frontEnd, #backEnd, #data, #challenges, #openSource, 
+      #gitter, #videos, #cityMeetups, #wiki, #forum, #additional{
+         /* padding: 0 0 5px 0; */
+         margin: 0 5px 10px 5px;
+         /* padding: 0 5px 0 0; */
+         /* color: red; */
+         line-height: 1.5em;
+      }
+      /* comments text area and label*/
+      #comments-label{
+         display: block;
+         margin: 10px 0 0 5%;
+         padding:.3em;
+      }
+      #comments{
+         display: block;
+         margin: 0 0 20px 5%;
+         width: 90%;
+         color:black;
+      }
+
+      /* submit button */
+      #submit{
+         display: block;
+         margin: 0 40px 0 5%;
+         width: 90%;
+         background-color: green;
+         color: white;
+      }
+
+   </style>
+</head>
+
+<body>
+   <div id='container'>
+      <h1 id='title'>freeCodeCamp Survey Form</h1>
+      <p id='description'>
+         Thank you for taking the time to help us improve the platform.
+      </p>
+      <form id='survey-form'>
+         <label for='name' id='name-label'>Name</label>
+         <input type='text' id='name' name='name' required minlength='1' size='30' placeholder='Enter your name'/>
+         <label for='email' id='email-label'>Email</label>
+         <input type='email' id ='email' name='email' size='30' required placeholder='Enter your email'/>
+         <label for='age' id='number-label'>Age</label>
+         <input type='number' id='number' name='age' required min='10' max='100' size='30' placeholder='Age'/>
+         
+         <label for="dropdown" id='dropdown-label'>Which option best describe your current role?</label>
+         <select name="dropdown" id="dropdown">
+            <option value="student">Select current role</option>
+            <option value="student">Student</option>
+            <option value="job">Full Time Job</option>
+            <option value="learner">Full Time Learner</option>
+            <option value="notToSay">Prefer not to say</option>
+            <option value="other">Other</option>
+         </select><br>
+         
+         <label for="dropdown" id='recommend-label'>Would you recommend freeCodeCamp to a friend?</label><br>
+         <label for="Definitely">
+            <input type="radio" id="Definitely" name="recommend" value="Definitely" checked="checked" >Definitely
+         </label><br>
+         <label for="Maybe">
+            <input type="radio" id="Maybe" name="recommend" value="Maybe">Maybe
+         </label><br>
+         <label for="NotSure">
+            <input type="radio" id="NotSure" name="recommend" value="NotSure">Not Sure
+         </label><br>
+
+         <label for="dropdown2" id='dropdown-label2'>Which is your favorite feature of freeCodeCamp?</label>
+         <select name="dropdown2" id="dropdown2">
+            <option value="challenges">Select an option</option>
+            <option value="challenges">Challenges</option>
+            <option value="projects">Projects</option>
+            <option value="community">Community</option>
+            <option value="openSource">Open Source</option>
+         </select><br>
+
+         <!-- Problem with label "checkboxes-label", it joins upper section !!! -->
+         <!-- "(check all that apply)" should be smaller text -->
+         <label id='checkboxes-label'>What would you see improved? <font size='1'>(check all that apply)</font></label><br>
+         <label for="frontEnd">
+            <input id="frontEnd" value="frontEnd" type="checkbox" name="favorite">Front-end Projects
+         </label><br>
+         <label for="backEnd">
+            <input id="backEnd" value="backEnd" type="checkbox" name="favorite">Back-end Projects
+         </label><br>
+         <label for="data">
+            <input id="data" value="data" type="checkbox" name="favorite">Data Visualization
+         </label><br>
+         <label for="challenges">
+            <input id="challenges" value="challenges" type="checkbox" name="favorite">Challenges
+         </label><br>
+         <label for="openSource">
+            <input id="openSource" value="openSource" type="checkbox" name="favorite">Open Source Community
+         </label><br>
+         <label for="gitter">
+            <input id="gitter" value="gitter" type="checkbox" name="favorite">Gitter help rooms
+         </label><br>
+         <label for="videos">
+            <input id="videos" value="videos" type="checkbox" name="favorite">Videos
+         </label><br>
+         <label for="cityMeetups">
+            <input id="cityMeetups" value="cityMeetups" type="checkbox" name="favorite">City Meetups
+         </label><br>
+         <label for="wiki">
+            <input id="wiki" value="wiki" type="checkbox" name="favorite">Wiki
+         </label><br>
+         <label for="forum">
+            <input id="forum" value="forum" type="checkbox" name="favorite">Forum
+         </label><br>
+         <label for="additional">
+            <input id="additional" value="additional" type="checkbox" name="favorite">Additional Courses
+         </label><br>
+      
+         <label for="comments" value="comments" id='comments-label'><i>Any comments or suggestions</i></label>
+         <textarea id="comments" name="comments" rows="4" cols="48" placeholder="Enter your comments here">   
+         </textarea>
+
+         <button id='submit' type='submit'>Submit</button><br>
+      </form>
+   </div>
+</body>
+</html>
